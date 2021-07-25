@@ -4,8 +4,10 @@ import "strings"
 v = strings.split(tfplan.terraform_version, ".")
 version_major = int(v[1])
 version_minor = int(v[2])
+version_first_part = int(v[0])
 
 main = rule {
     #version_major is 14 and version_minor >= 1
-    version_major >= 0
+    #version_major >= 0
+    version_first_part == 0
 }
